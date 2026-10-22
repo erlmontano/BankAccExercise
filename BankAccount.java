@@ -1,11 +1,22 @@
 package exercise;
+
 /**
  * 
  * BankAccount
  */
+import java.util.List;
+import java.util.ArrayList;
+
 public class BankAccount {
     private double balance;
     private boolean imfrozen;
+    private List<Transaction> transactionHistory; // list of all transactions
+
+    public BankAccount() { // default bank account
+        this.balance = 0.0;
+        this.imfrozen = false;
+        this.transactionHistory = new ArrayList<>();
+    }
 
     public double getBalance() {
         return balance;
@@ -23,12 +34,7 @@ public class BankAccount {
         this.imfrozen = imfrozen;
     }
 
-    public BankAccount() {
-        this.balance = 0.0;
-        this.imfrozen = false;
-    }
-
-    public void deposit(double amount) {
+    public void deposit(double amount) { // to deposit amount to the bank account
         if (imfrozen) {
             System.out.println("Account is Frozen");
             System.out.println("Unable to Transact");
@@ -43,7 +49,7 @@ public class BankAccount {
         System.out.printf("Amount deposited: $%.2f %nCurrent Balance: $%.2f%n", amount, this.balance);
     }
 
-    public void withdraw(double amount) {
+    public void withdraw(double amount) { // to withdraw amount from the bank account
         if (imfrozen) {
             System.out.println("Account is FROZEN. Unable to Transact");
             return;
@@ -56,7 +62,7 @@ public class BankAccount {
         if (amount > balance) {
             System.out.printf("Amount withdrawn: $%.2f %n", amount);
             System.out.println("Insufficient Balance.");
-            System.out.printf("Current Balance: $%.2f%n",this.balance);
+            System.out.printf("Current Balance: $%.2f%n", this.balance);
             return;
         }
         this.balance -= amount;
@@ -75,5 +81,9 @@ public class BankAccount {
 
     public boolean isFrozen() {
         return this.imfrozen;
+    }
+
+    public List<Transaction> getTransactionHistory() { //get record of past transactions
+        return this.transactionHistory;
     }
 }
