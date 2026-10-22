@@ -1,5 +1,8 @@
 package exercise;
-
+/**
+ * 
+ * BankAccount
+ */
 public class BankAccount {
     private double balance;
     private boolean imfrozen;
@@ -27,15 +30,17 @@ public class BankAccount {
 
     public void deposit(double amount) {
         if (imfrozen) {
-            System.out.println("Account is FROZEN. Unable to Transact");
+            System.out.println("Account is Frozen");
+            System.out.println("Unable to Transact");
             return;
         }
         if (amount <= 0) {
+            System.out.printf("Amount deposited: $%.2f %n", amount);
             System.out.println("Invalid amount. Must be greater than 0");
             return;
         }
         this.balance += amount;
-        System.out.printf("Amount deposited: $%.2f %n Current Balance: $%.2f%n", amount, this.balance);
+        System.out.printf("Amount deposited: $%.2f %nCurrent Balance: $%.2f%n", amount, this.balance);
     }
 
     public void withdraw(double amount) {
@@ -44,18 +49,18 @@ public class BankAccount {
             return;
         }
         if (amount <= 0) {
+            System.out.printf("Amount withdrawn: $%.2f %n", amount);
             System.out.println("Invalid amount. Must be greater than 0");
             return;
         }
         if (amount > balance) {
+            System.out.printf("Amount withdrawn: $%.2f %n", amount);
             System.out.println("Insufficient Balance.");
+            System.out.printf("Current Balance: $%.2f%n",this.balance);
             return;
         }
         this.balance -= amount;
-        System.out.printf("Amount withdrawn: $%.2f %n Current Balance $%.2f%n", amount, this.balance);
-    }
-    public double getBalance() {
-        return this.balance;
+        System.out.printf("Amount withdrawn: $%.2f %nCurrent Balance $%.2f%n", amount, this.balance);
     }
 
     public void freezeAccount() {
