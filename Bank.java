@@ -1,8 +1,12 @@
 package exercise;
 
+/**
+ * Bank.
+ */
+
 public interface Bank {
 
-    void addAccount(BankAccount account);
+  void addAccount(BankAccount account);
 
-    BankAccount getAccount(int id);
+  BankAccount getAccount(int id);
 }
