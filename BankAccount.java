@@ -56,7 +56,7 @@ public class BankAccount {
   }
 
   /**
- * For withdraw and deposit.
+ * For deposit.
  */
 
   public void deposit(double amount) { // to deposit from account
