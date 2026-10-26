@@ -14,10 +14,6 @@ public class BankAccountManager implements Bank {
     }
 
     public void addAccount(BankAccount account) {
-        if (accounts.size() >= 100) {
-            System.out.println("Limit reached: Cannot create more than 100 accounts.");
-            return;
-        }
         accounts.put(id, account);
         System.out.println("Account added successfully with ID: " + id);
         id++;
@@ -33,7 +29,7 @@ public class BankAccountManager implements Bank {
             int accId = entry.getKey();
             BankAccount accs = entry.getValue();
 
-            String name = "N/A";
+            String name = accs.toString();
 
             System.out.printf("Account ID: %d, Account Name: %s, Balance: %.2f%n",
                     accId, name, accs.getBalance());

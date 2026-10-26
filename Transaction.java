@@ -42,7 +42,7 @@ public class Transaction {
 @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        return String.format("Transaction [type=%s, amount=%.3f, time_stamp=%s]",
+        return String.format("Transaction [type= %s amount= %.3f time_stamp= %s] %n",
                 type, okane, timestamp.format(formatter));
     }
 
